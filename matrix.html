@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matrix · In Balance market research</title>
+  <meta name="description" content="Place, problem and education option for In Balance. Reach pools overlap. Cut-off 27 October 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/research.css" />
+</head>
+<body data-page="matrix" data-cutoff="2026-10-27">
+  <a class="skip" href="#content">Skip to content</a>
+  <p class="draft">Research file. 27 October 2026. Internal. Pools overlap. A sum is not a market.</p>
+  <header class="nav">
+    <a class="brand" href="index.html"><strong>In Balance</strong><small>Market research</small></a>
+  </header>
+  <nav class="chapters" aria-label="Report">
+    <a href="index.html">Brief</a>
+    <a href="matrix.html" aria-current="page">Matrix</a>
+    <a href="sizing.html">Sizing</a>
+    <a href="geos.html">Places</a>
+    <a href="lanes.html">Education</a>
+    <a href="competitors.html">Field</a>
+    <a href="implications.html">Read</a>
+    <a href="control-room.html">Ledger</a>
+    <a href="sources.html">Sources</a>
+  </nav>
+
+  <main id="content">
+    <section class="hero-page">
+      <div class="wrap">
+        <p class="kicker">Place, then problem, then the other course they might buy</p>
+        <h1>Where a person <em>might pay.</em></h1>
+        <p class="lede">Fourteen areas. Filter them. Open one. The big numbers are pools — people who did pilates, people already teaching fitness, people enrolled in a personal-training qualification. They are not In Balance’s buyers, and the same person can sit in more than one pool.</p>
+
+        <div class="kpis" aria-live="polite">
+          <div class="kpi"><span class="idx">Pools in view</span><b id="kpi-reach">—</b><span id="kpi-reach-note">Not unique people</span></div>
+          <div class="kpi"><span class="idx">Areas in view</span><b id="kpi-count">0</b><span id="kpi-count-note">of 14</span></div>
+          <div class="kpi"><span class="idx">How worn the promise is</span><b id="kpi-soph">—</b><span>1 is fresh. 5 has heard it.</span></div>
+          <div class="kpi"><span class="idx">In Balance fit</span><b id="kpi-fit">—</b><span>Share of visible areas the current offer can take</span></div>
+        </div>
+
+        <div class="deck">
+          <div class="deck-top">
+            <input id="q" class="search" type="search" placeholder="Search a place, a problem, or a course" aria-label="Search areas" />
+            <div class="views" role="group" aria-label="View">
+              <button class="view-btn" type="button" data-view="columns" aria-pressed="true">Columns</button>
+              <button class="view-btn" type="button" data-view="table" aria-pressed="false">Table</button>
+              <button class="view-btn" type="button" data-view="charts" aria-pressed="false">Layers</button>
+            </div>
+          </div>
+          <div class="filters">
+            <label>Place<select id="f-place"><option value="all">Anywhere we teach or could</option></select></label>
+            <label>Problem<select id="f-problem"><option value="all">Any reason to pay</option></select></label>
+            <label>What they might buy<select id="f-lane"><option value="all">Any education</option></select></label>
+            <label>Offer fit<select id="f-fit"><option value="all">Any fit</option><option value="now">Current offer can take them</option><option value="later">A later product</option><option value="no">Someone else’s course</option></select></label>
+            <button class="text-btn" type="button" id="clear">Clear</button>
+          </div>
+        </div>
+
+        <div id="view-columns" class="columns"></div>
+        <div id="view-table" class="table-wrap hidden"></div>
+        <div id="view-charts" class="hidden">
+          <p class="kicker">Five layers. Do not add them.</p>
+          <h2>Each bar is a <em>different thing.</em></h2>
+          <div class="bars" id="layers"></div>
+          <p class="note" style="margin-top: 14px;">Widths are within each layer’s own scale, so a gym-revenue bar is not “bigger than” a headcount. Read the number, not the length, across rows.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div>In Balance Education. Segment matrix. Cut-off 27 October 2026.</div>
+    <nav aria-label="Footer"><a href="sizing.html">Sizing</a><a href="sources.html">Sources</a><a href="data/research.json">Dataset</a></nav>
+  </footer>
+
+  <div class="drawer-back" id="drawer">
+    <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+      <button class="close" type="button" id="drawer-close">Close</button>
+      <p class="kicker" id="drawer-kicker"></p>
+      <h2 id="drawer-title"></h2>
+      <p id="drawer-lead"></p>
+      <div id="drawer-body"></div>
+    </aside>
+  </div>
+
+  <script>
+    const areas = [
+      {
+        id: "AU-01",
+        place: "Australia",
+        problem: "Career change",
+        lane: "Pilates certification",
+        fit: "now",
+        title: "A different week, starting in a room",
+        pool: 1147,
+        poolLabel: "1,147 seats",
+        poolNote: "Worked scenario, not a census: 3,823 pilates and yoga businesses × 0.3 new teachers. One seat is not one enrolment.",
+        grade: "derived",
+        soph: 3,
+        sophText: "They have seen ‘become a pilates instructor’ ads. A date and a city still does the work.",
+        situation: "Something in the old week has ended, or is about to. The discovery interviews named a degree finishing, a corporate exit, or a death.",
+        wrong: "Buying the cheapest certificate, or the longest diploma, before knowing which room they can actually teach in.",
+        want: "A qualification a studio will recognise, and a week that looks different within a year.",
+        offer: "In-person mat from A$2,499, reformer from A$2,999, mat and reformer from A$4,999. Sydney, Melbourne, Brisbane, Gold Coast. Early prices sit under the crossed-out standard price.",
+        evidence: "Interview, 21 Oct 2026. IBISWorld public page, April 2026. Live course board, 27 Oct 2026.",
+        limit: "No counted share of enrolments is tagged career-change. The intent field exists and is not yet a report."
+      },
+      {
+        id: "AU-02",
+        place: "Australia",
+        problem: "Already curious",
+        lane: "Pilates certification",
+        fit: "now",
+        title: "They already love the class",
+        pool: 1630000,
+        poolLabel: "1.63 million",
+        poolNote: "Adults who did pilates in 2025. Almost none of them will buy a course. This is the ocean, not the harbour.",
+        grade: "claim",
+        soph: 4,
+        sophText: "Pilates is the second-ranked fitness trend for 2025–26. The ‘become a teacher’ promise is worn.",
+        situation: "The class is the best hour of the week. Teaching it feels like the obvious next step, until the price and the practice hours appear.",
+        wrong: "Treating every page view as a future teacher. July and August turned about 2.3% of first-seen leads into a payment within 30 days.",
+        want: "To be the person at the front, without giving up the job until the qualification is real.",
+        offer: "The public site already speaks to flexibility around work, family and travel. That is this person, in the brand’s own words.",
+        evidence: "AusPlay figure as cited by Yoga Australia and a studio operator, 2025. AUSactive trends, 2025–26. Client lead-to-payment audit.",
+        limit: "The 1.63 million figure is cited, not read from the ASC data table in this file."
+      },
+      {
+        id: "AU-03",
+        place: "Australia",
+        problem: "Already in movement",
+        lane: "Pilates certification",
+        fit: "now",
+        title: "A trainer adding a tool",
+        pool: 35900,
+        poolLabel: "35,900",
+        poolNote: "Fitness instructors employed in Australia. Gym pilates teachers are inside this count. Studio pilates teachers are a separate occupation with no public headcount yet.",
+        grade: "official",
+        soph: 4,
+        sophText: "They already hold a Certificate IV or equivalent. Another certificate has to change what they can charge.",
+        situation: "They teach, or they treat. A reformer credential lets them work in a studio, raise a rate, or leave a gym floor.",
+        wrong: "Selling them a beginner career-change story. They want the gap in their current week filled.",
+        want: "Mat and reformer, recognised, without a year out of paid teaching.",
+        offer: "Online mat A$1,800, reformer A$2,400, both A$3,300. In-person is faster and more expensive. AUSactive registration is the local proof.",
+        evidence: "Jobs and Skills Australia, Fitness Instructors, February 2026 trend. ABS OSCA 462231 separates pilates instructors and excludes gym pilates. Online prices from the CEO dashboard, checked against the site.",
+        limit: "Sixteen percent of a 632-person AUSactive trend survey work in boutique, pilates or yoga. That is a survey, not a population."
+      },
+      {
+        id: "AU-04",
+        place: "Australia",
+        problem: "Career change",
+        lane: "Government fitness qualification",
+        fit: "no",
+        title: "They are shopping a fitness career, not pilates",
+        pool: 11765,
+        poolLabel: "11,765",
+        poolNote: "Certificate IV in Fitness enrolments in 2025, from a compiler of NCVER Total VET Activity. People in training, not completions, and not pilates students.",
+        grade: "claim",
+        soph: 3,
+        sophText: "The personal-trainer course is a known product, often under A$2,200, sometimes subsidised.",
+        situation: "The search starts at ‘personal trainer course’, not ‘reformer certification’. Pilates shows up later, or not at all.",
+        wrong: "Assuming this pool converts if the ad says pilates. Most of it is a different job.",
+        want: "A nationally recognised qualification and a job title a gym already hires.",
+        offer: "In Balance does not sell SIS40221. This pool is the market beside the market. A later bridge course could speak to graduates. It does not exist now.",
+        evidence: "Get Course, page updated 21 Oct 2026, citing NCVER 2025. NSW standard fee listing A$9,770 before subsidy. ACFPT public price from A$999.",
+        limit: "NCVER’s own table was not opened for this file. Treat 11,765 as a cited compiler figure."
+      },
+      {
+        id: "AU-05",
+        place: "Australia",
+        problem: "Already in movement",
+        lane: "Government diploma",
+        fit: "later",
+        title: "They want the studio diploma",
+        pool: null,
+        poolLabel: "Not counted",
+        poolNote: "No public count of diploma enrolments was opened. National Pilates Training publishes prices, not student numbers.",
+        grade: "gap",
+        soph: 5,
+        sophText: "This buyer has already compared comprehensive schools. Mechanism and hours beat a lifestyle ad.",
+        situation: "A clinic, a fully equipped studio, or an insurer-minded employer asked for the diploma, not a short certification.",
+        wrong: "Matching them on price with a three-weekend course. The hours are the product.",
+        want: "The apparatus, the logbook, and a qualification that reads as comprehensive.",
+        offer: "Not the current In Balance course. Polestar’s mat series is from A$3,340 before mentor costs, on a diploma path. National Pilates’ diploma is A$9,185 online or A$10,685 in person.",
+        evidence: "Polestar and National Pilates Training pricing pages, read 27 Oct 2026.",
+        limit: "In Balance can feed this person a mat and reformer start. It cannot honestly claim the diploma."
+      },
+      {
+        id: "NZ-01",
+        place: "New Zealand",
+        problem: "Career change",
+        lane: "Pilates certification",
+        fit: "now",
+        title: "Wellington, and anyone who will travel to it",
+        pool: null,
+        poolLabel: "Not counted",
+        poolNote: "No New Zealand pilates participation series was opened. One host studio is on the public board.",
+        grade: "gap",
+        soph: 3,
+        sophText: "A smaller ad market. The room is the proof.",
+        situation: "Same life-event buyer as Australia, with one teaching city on the board.",
+        wrong: "Using an Australian cost-per-lead as the New Zealand budget.",
+        want: "A recognised course without flying to Sydney for every weekend.",
+        offer: "Soul Pilates, Lambton Quay. Mat NZ$2,499 early. Mat and reformer NZ$4,999 early. Online remains the path for the rest of the country.",
+        evidence: "Live location and price board, 27 Oct 2026. Interview: online ads have included New Zealand.",
+        limit: "Enrolments are not split by country in the scorecard used here."
+      },
+      {
+        id: "BALI-01",
+        place: "Bali",
+        problem: "Already curious",
+        lane: "Pilates certification",
+        fit: "now",
+        title: "A short intensive, often attached to a trip",
+        pool: null,
+        poolLabel: "Not counted",
+        poolNote: "Bali has no published count of teacher-training buyers. Prices are the evidence that a different buyer shows up.",
+        grade: "gap",
+        soph: 3,
+        sophText: "The trip is the hook. The qualification has to survive the flight home.",
+        situation: "A few days in Bingin. Some students are travelling. Some live there. The dashboard’s US dollar amounts are consistent with this room, and not proof of it.",
+        wrong: "Judging Bali by an Australian lead-quality rule.",
+        want: "The certificate, and the week away, in one decision.",
+        offer: "Pilates by Bambu. Mat USD-style 1,749 early. Combined intensive 3,499 early, five days. October 2026 and repeats in 2027 are on the board.",
+        evidence: "Live course board, 27 Oct 2026. Finance sheet shows USD amounts displayed across the four months.",
+        limit: "Currency on a sale is not a country. USD rows were not joined to Bali."
+      },
+      {
+        id: "EU-01",
+        place: "Northern Europe",
+        problem: "Career change",
+        lane: "Pilates certification",
+        fit: "now",
+        title: "A partner’s room, four cities",
+        pool: null,
+        poolLabel: "Not counted",
+        poolNote: "Oslo, Berlin, Munich and Amsterdam are on the board. Spain was named in the interview and is not on that board.",
+        grade: "primary",
+        soph: 3,
+        sophText: "Each city has its own schools. In Balance is the visiting method, not the local default.",
+        situation: "The partner fills the room. In Balance supplies the education and shares the in-person result. Online keeps the whole sale.",
+        wrong: "One European budget. Oslo is priced in krone. Berlin, Munich and Amsterdam are priced in euro. Dutch search has already spent a little.",
+        want: "A visiting faculty they trust, in a studio they already know.",
+        offer: "Oslo mat early 16,599 kr. Berlin and Amsterdam mat early €1,499. Munich mat is on the 2027 board. Google Ads sent 75 clicks to an Overijssel page for about A$23.",
+        evidence: "Live course board. Interview: about ten partners, including Norway, Spain, Germany, the Netherlands, New Zealand, Bali and Australia. Google Ads landing pages, four-month view.",
+        limit: "Spain has no public course in the board read on 27 Oct. Partner margin is not in the revenue line."
+      },
+      {
+        id: "ON-01",
+        place: "Online",
+        problem: "Already curious",
+        lane: "Pilates certification",
+        fit: "now",
+        title: "Not near a date, or not free on that date",
+        pool: 18,
+        poolLabel: "18 enrolments",
+        poolNote: "Online enrolment records, 1 July–26 October 2026. This is In Balance’s own result, not a market size.",
+        grade: "client",
+        soph: 4,
+        sophText: "Online pilates certificates are a known category. Breathe’s collapse makes the promise louder and less trusted.",
+        situation: "Work, children, or distance. The site says this directly. Ads for online have only been aimed at Australia, New Zealand and the Netherlands.",
+        wrong: "Sending this person into the in-person nurture, or judging the offer on 18 sales while it was barely advertised.",
+        want: "Start now. Finish around a real week. Still be allowed to teach.",
+        offer: "Mat and reformer online, A$3,300, or A$1,100 a month for three months. AUSactive and ICREPs. Practical assessment submitted online.",
+        evidence: "Course page and dashboard product prices. Interview: online geography limited to AU, NZ, NL. Eighteen online records in the period.",
+        limit: "October’s three online records showed A$825, A$1,100 and A$1,100. The A$825 is below the advertised plan. Reason unknown."
+      },
+      {
+        id: "ON-02",
+        place: "Online",
+        problem: "A business, not a certificate",
+        lane: "Pilates certification",
+        fit: "later",
+        title: "They want clients, not modules",
+        pool: null,
+        poolLabel: "Not counted",
+        poolNote: "No graduate employment or client-acquisition result is in the dashboard. Teachable progress was not in the backend that was checked.",
+        grade: "gap",
+        soph: 5,
+        sophText: "Breathe said the quiet part: twenty weeks, then help getting paid. That school is now in liquidation. The desire remains.",
+        situation: "The certificate is a means. The fear is graduating into an empty timetable.",
+        wrong: "Another anatomy module. Or a guarantee of income, which this file does not support.",
+        want: "A way to find the first paying clients, and a room or a reformer to teach them on.",
+        offer: "Not built as a public product. The discovery call flagged it as the strongest top-of-funnel hook, especially online. Circle is the nearest asset: about 300 of 5,000 invited contacts joined.",
+        evidence: "Discovery notes. Breathe Education walkthrough, April 2026, company claim of 5,000 instructors in 26 countries. ASIC creditors’ voluntary liquidation, resolution 20 August 2026.",
+        limit: "Do not inherit Breathe’s income language. Their claim died with the company."
+      },
+      {
+        id: "ON-03",
+        place: "Online",
+        problem: "Already in movement",
+        lane: "Yoga teacher training",
+        fit: "no",
+        title: "A yoga teacher who might add pilates",
+        pool: 1150000,
+        poolLabel: "1.15 million",
+        poolNote: "Australian adults who did yoga, cited beside the pilates figure. Participants, and yoga was roughly flat while pilates grew.",
+        grade: "claim",
+        soph: 4,
+        sophText: "Yoga training is its own market. Pilates is an add-on, not a replacement.",
+        situation: "They already teach, or they already practise. A second method has to fit the week they have.",
+        wrong: "A career-change ad. They have a practice.",
+        want: "Reformer literacy without abandoning yoga.",
+        offer: "Possible online buyer. Not a separate In Balance product. Yoga Australia’s own note: more studios, less revenue, and new teachers feel it.",
+        evidence: "Yoga Australia, State of Yoga 2026, citing studio turnover and AusPlay.",
+        limit: "No In Balance creative has been scored against this person."
+      },
+      {
+        id: "B2B-01",
+        place: "Australia",
+        problem: "A business, not a certificate",
+        lane: "Studio hiring",
+        fit: "later",
+        title: "The studio needs a teacher",
+        pool: 3823,
+        poolLabel: "3,823 businesses",
+        poolNote: "Pilates and yoga studios, IBISWorld 2026. Businesses, not vacancies. Two-thirds of a 70-operator AUSactive survey expected to be short of exercise professionals within a year.",
+        grade: "publisher",
+        soph: 2,
+        sophText: "Studios do not need another student ad. They need a graduate who can hold a class.",
+        situation: "Revenue per studio is under pressure. Headcount is not. The employer’s problem is a roster, not a dream.",
+        wrong: "Counting a studio as a student. The studio is a channel and a job market.",
+        want: "Someone who can teach mat and reformer next month, and stay.",
+        offer: "Partner rooms already do a version of this outside Australia. An Australian studio-hiring or graduate-placement offer is not on the site.",
+        evidence: "IBISWorld public page. AUSactive annual report 2024/25, workforce survey of 70 operators covering 1,300-plus businesses.",
+        limit: "The staffing survey is not pilates-specific. ‘Two-thirds’ is of that respondent set."
+      },
+      {
+        id: "AL-01",
+        place: "Online",
+        problem: "A business, not a certificate",
+        lane: "Continuing education",
+        fit: "later",
+        title: "The graduate who should buy the next course",
+        pool: null,
+        poolLabel: "Not counted",
+        poolNote: "Completion, referral and second-purchase are empty cells on the dashboard. Circle joins are not learning outcomes.",
+        grade: "gap",
+        soph: 2,
+        sophText: "A second purchase is a fresh promise: antenatal, apparatus, or how to run the week.",
+        situation: "They finished, or they stalled. The business keeps no public completion rate, so ascension is a hope.",
+        wrong: "Inviting the whole lead list into a community and calling it a curriculum.",
+        want: "The next skill that makes the first qualification worth more.",
+        offer: "Workshops and continuing education were named as the point of Circle. They are not a priced ladder in this file.",
+        evidence: "Dashboard: Teachable view had catalogue metadata, not progress. About 300 Circle members from about 5,000 invites.",
+        limit: "Do not forecast repeat revenue until a second payment is joined to a person."
+      },
+      {
+        id: "EU-02",
+        place: "Northern Europe",
+        problem: "Already curious",
+        lane: "Pilates certification",
+        fit: "now",
+        title: "Ads have barely left Australia",
+        pool: null,
+        poolLabel: "Not counted",
+        poolNote: "Online targeting has been Australia, New Zealand and the Netherlands. The rooms in Oslo, Berlin and Munich are ahead of the ads.",
+        grade: "client",
+        soph: 3,
+        sophText: "A cold European online buyer has not been tested. Do not import an Australian click price.",
+        situation: "The product can be studied from anywhere. The media has not been asked to find those people, except in the Netherlands.",
+        wrong: "Opening five new countries in the ad account because the course page says worldwide.",
+        want: "The same online course, in their language of accreditation, which may not be AUSactive.",
+        offer: "ICREPs is the international line on the site. Whether a German or Norwegian studio hires on it is not evidenced here.",
+        evidence: "Interview, 21 Oct 2026. Course pages claim AUSactive and ICREPs.",
+        limit: "Recognition is a claim on the site until a hiring studio is quoted."
+      }
+    ];
+
+    const layers = [
+      { name: "Fitness facility revenue, Australia", value: "A$3.7bn", width: 100, fill: "", note: "HFA 2026, citing AUSactive. About 6.2 million members, about 8,000 facilities. The page also prints a broken US$239 billion figure. Use the prose." },
+      { name: "Wider fitness-related spend", value: "A$8bn+", width: 86, fill: "", note: "Same HFA chapter. A different boundary from facility revenue. Do not add it to A$3.7 billion." },
+      { name: "Pilates and yoga studios", value: "A$671m", width: 42, fill: "blue", note: "IBISWorld, 2025–26. Revenue down, business count up to 3,823." },
+      { name: "One publisher’s pilates-only Australia", value: "US$0.21bn", width: 28, fill: "yellow", note: "Consumer Industry Insights, 2025. A commercial estimate. Near the studio figure in scale, not the same definition." },
+      { name: "A conflicting studio figure", value: "US$5.5bn", width: 100, fill: "yellow", note: "IMARC, Australia pilates and yoga studios, 2025. Not reconcilable with IBISWorld. Do not use it." },
+      { name: "Adults who did pilates", value: "1.63m", width: 70, fill: "blue", note: "AusPlay 2025, cited. Yoga about 1.15 million, roughly flat." },
+      { name: "Fitness instructors employed", value: "35,900", width: 36, fill: "", note: "Jobs and Skills Australia. 68% part-time. 62% female. Median age 36. Median full-time earnings A$1,500 a week." },
+      { name: "Certificate IV in Fitness enrolments", value: "11,765", width: 24, fill: "blue", note: "2025, compiler of NCVER. Up from 10,175 in 2024 on the same page." },
+      { name: "In Balance enrolments, four months", value: "126", width: 8, fill: "yellow", note: "108 in person, 18 online. Recorded value about A$291,000. Provisional." }
+    ];
+
+    const problems = ["Career change", "Already curious", "Already in movement", "A business, not a certificate"];
+    const $ = (id) => document.getElementById(id);
+    const uniq = (key) => [...new Set(areas.map((a) => a[key]))];
+
+    function fillSelect(id, values) {
+      const el = $(id);
+      values.forEach((v) => {
+        const o = document.createElement("option");
+        o.value = v;
+        o.textContent = v;
+        el.appendChild(o);
+      });
+    }
+    fillSelect("f-place", uniq("place"));
+    fillSelect("f-problem", problems);
+    fillSelect("f-lane", uniq("lane"));
+
+    function state() {
+      return {
+        q: $("q").value.trim().toLowerCase(),
+        place: $("f-place").value,
+        problem: $("f-problem").value,
+        lane: $("f-lane").value,
+        fit: $("f-fit").value
+      };
+    }
+    function visible() {
+      const s = state();
+      return areas.filter((a) => {
+        if (s.place !== "all" && a.place !== s.place) return false;
+        if (s.problem !== "all" && a.problem !== s.problem) return false;
+        if (s.lane !== "all" && a.lane !== s.lane) return false;
+        if (s.fit !== "all" && a.fit !== s.fit) return false;
+        if (!s.q) return true;
+        const blob = [a.title, a.place, a.problem, a.lane, a.situation, a.offer].join(" ").toLowerCase();
+        return blob.includes(s.q);
+      });
+    }
+    function money(n) {
+      if (n >= 1000000) return (n / 1000000).toFixed(2).replace(/\.00$/, "") + "m";
+      if (n >= 1000) return Math.round(n).toLocaleString("en-AU");
+      return String(n);
+    }
+    function card(a) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "seg";
+      btn.innerHTML = `<div class="meta"><span class="idx">${a.id}</span><span class="pill">${a.place}</span></div><strong>${a.title}</strong><p>${a.poolLabel} · ${a.lane}</p>`;
+      btn.addEventListener("click", () => openDrawer(a));
+      return btn;
+    }
+    function render() {
+      const rows = visible();
+      const pool = rows.reduce((sum, a) => sum + (a.pool || 0), 0);
+      $("kpi-reach").textContent = pool ? money(pool) : "—";
+      $("kpi-reach-note").textContent = pool ? "Sum of different pools. Not unique people." : "Nothing in view has a counted pool.";
+      $("kpi-count").textContent = String(rows.length);
+      const soph = rows.filter((a) => a.soph);
+      const avg = soph.length ? soph.reduce((s, a) => s + a.soph, 0) / soph.length : 0;
+      $("kpi-soph").textContent = soph.length ? avg.toFixed(1) + " / 5" : "—";
+      const now = rows.filter((a) => a.fit === "now").length;
+      $("kpi-fit").textContent = rows.length ? Math.round((now / rows.length) * 100) + "%" : "—";
+
+      const cols = $("view-columns");
+      cols.innerHTML = "";
+      problems.forEach((problem) => {
+        const mine = rows.filter((a) => a.problem === problem);
+        const col = document.createElement("section");
+        col.className = "column";
+        col.innerHTML = `<header><h3>${problem}</h3><span class="idx">${mine.length}</span></header>`;
+        if (!mine.length) {
+          const p = document.createElement("p");
+          p.className = "note";
+          p.textContent = "Nothing in this filter.";
+          col.appendChild(p);
+        }
+        mine.forEach((a) => col.appendChild(card(a)));
+        cols.appendChild(col);
+      });
+
+      const table = $("view-table");
+      table.innerHTML = `<table><thead><tr><th>ID</th><th>Problem</th><th>Place</th><th>Might buy</th><th>Pool</th><th>Fit</th><th>Worn</th></tr></thead><tbody>${rows.map((a) => `<tr data-id="${a.id}"><td>${a.id}</td><td>${a.title}</td><td>${a.place}</td><td>${a.lane}</td><td>${a.poolLabel}</td><td>${a.fit}</td><td>${a.soph}/5</td></tr>`).join("")}</tbody></table>`;
+      table.querySelectorAll("tr[data-id]").forEach((tr) => {
+        tr.style.cursor = "pointer";
+        tr.addEventListener("click", () => openDrawer(areas.find((a) => a.id === tr.dataset.id)));
+      });
+
+      $("layers").innerHTML = layers.map((layer) => `<div class="bar-row"><div>${layer.name}</div><div class="bar" title="${layer.note}"><i class="${layer.fill}" style="width:${layer.width}%"></i></div><div>${layer.value}</div></div><p class="note" style="margin:-4px 0 8px">${layer.note}</p>`).join("");
+    }
+    function openDrawer(a) {
+      $("drawer-kicker").textContent = `${a.place} · ${a.problem} · ${a.lane}`;
+      $("drawer-title").textContent = a.title;
+      $("drawer-lead").textContent = a.poolNote;
+      const fitText = { now: "The current course can take this person.", later: "A later product. Do not pretend it is on the site.", no: "This is someone else’s course. Useful as context, not as a lead." };
+      $("drawer-body").innerHTML = `
+        <p><span class="idx">The situation</span><br>${a.situation}</p>
+        <p><span class="idx">The wrong fix</span><br>${a.wrong}</p>
+        <p><span class="idx">What they want</span><br>${a.want}</p>
+        <p><span class="idx">What In Balance can sell</span><br>${a.offer}</p>
+        <p><span class="idx">Fit</span><br>${fitText[a.fit]}</p>
+        <p><span class="idx">How worn the promise is</span><br>${a.sophText}</p>
+        <p><span class="idx">Evidence</span><br>${a.evidence}</p>
+        <p><span class="idx">Limit</span><br>${a.limit}</p>`;
+      $("drawer").classList.add("open");
+      $("drawer-close").focus();
+    }
+    function closeDrawer() { $("drawer").classList.remove("open"); }
+    $("drawer-close").addEventListener("click", closeDrawer);
+    $("drawer").addEventListener("click", (event) => { if (event.target.id === "drawer") closeDrawer(); });
+    document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeDrawer(); });
+
+    document.querySelectorAll(".view-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".view-btn").forEach((b) => b.setAttribute("aria-pressed", "false"));
+        btn.setAttribute("aria-pressed", "true");
+        ["columns", "table", "charts"].forEach((name) => {
+          $("view-" + name).classList.toggle("hidden", name !== btn.dataset.view);
+        });
+      });
+    });
+    ["q", "f-place", "f-problem", "f-lane", "f-fit"].forEach((id) => {
+      $(id).addEventListener("input", render);
+      $(id).addEventListener("change", render);
+    });
+    $("clear").addEventListener("click", () => {
+      $("q").value = "";
+      ["f-place", "f-problem", "f-lane", "f-fit"].forEach((id) => { $(id).value = "all"; });
+      render();
+    });
+    render();
+  </script>
+</body>
+</html>

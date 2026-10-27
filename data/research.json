@@ -1,0 +1,30 @@
+{
+  "client": "In Balance Education",
+  "cutoff": "2026-10-27",
+  "status": "internal-draft",
+  "decision": "Which problem is actually paying, and whether the online course deserves its own Australian test before any new country.",
+  "constraint": "Decision-grade measurement. Recorded value and enrolments exist. Settled cash, contribution, new-versus-repeat, and buyer problem do not.",
+  "layers": [
+    {"id": "facilities", "figure": "A$3.7 billion", "year": "2025", "grade": "publisher", "source": "HFA 2026 Australia chapter, citing AUSactive"},
+    {"id": "studios", "figure": "A$670.7 million", "businesses": 3823, "year": "2025-26", "grade": "publisher", "source": "IBISWorld public page, April 2026"},
+    {"id": "pilates-participants", "figure": 1630000, "prior": 1280000, "year": "2025", "grade": "claim", "source": "AusPlay, cited by Yoga Australia and Frank Pineiro. ASC table not opened."},
+    {"id": "fitness-instructors", "figure": 35900, "grade": "official", "source": "Jobs and Skills Australia, February 2026 trend"},
+    {"id": "cert-iv-enrolments-2025", "figure": 11765, "grade": "claim", "source": "Get Course compiler of NCVER Total VET Activity, page updated 21 Oct 2026"},
+    {"id": "inb-enrolments", "figure": 126, "in_person": 108, "online": 18, "recorded_value_aud": 291003, "media_aud": 66064, "period": "2026-07-01 to 2026-10-26", "grade": "client"}
+  ],
+  "calculations": {
+    "C4_sam_studio_seats_aud": 4014500,
+    "C5_sam_cert_iv_slice_aud": 4119500,
+    "C6_som_jul_sep_annualised_recorded_value_aud": 881000,
+    "C7_media_multiple": 4.4,
+    "C8_jul_aug_30_day_pay_rate": 0.0227
+  },
+  "scenarios_aud": {
+    "studio_seats_0_3": {"seats": 1147, "fee": 3500, "value": 4014500, "grade": "derived"},
+    "ten_percent_of_cert_iv": {"people": 1177, "fee": 3500, "value": 4119500, "grade": "derived"},
+    "inb_jul_sep_annualised_recorded_value": {"value": 881000, "grade": "client", "note": "Pace, not a forecast. Not settled cash."}
+  },
+  "rejected": [
+    {"figure": "US$5.5 billion", "source": "IMARC Australia pilates and yoga studios 2025", "reason": "Not reconcilable with IBISWorld A$670.7 million"}
+  ]
+}
