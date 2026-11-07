@@ -94,10 +94,13 @@ em {
   line-height: 1;
 }
 .brand strong {
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 400;
-  letter-spacing: -0.03em;
+  display: block;
+  width: 148px;
+  height: 32px;
+  background: url("../assets/logo.svg") left center / contain no-repeat;
+  text-indent: -999px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .brand small {
   margin-top: 4px;
