@@ -2,6 +2,12 @@
 
 Cut-off 27 October 2026. Internal. Not for client publication until Isaac and Sammy clear it. The readable chapters are the HTML report in this folder. This file is the evidence and calculation trail. If a chapter and this file disagree, this file wins until the chapter is corrected.
 
+## Funnel comparison extension — 27 October dialogue
+
+Ben requested an extension comparing Clean Health Education, Functional Range Conditioning and relevant Pilates/fitness education providers, plus general cohort education, against the proposed community entry and early-payment/preparation model. Comparative evidence is being assembled in [the funnel comparison appendix](../output/market-funnel-comparison/). [Maven's cohort and community design](../output/market-funnel-comparison/general-education-analogue.md) supplies a general education analogue. Visible design is not evidence of superior conversion or profitability. Career-entry training and continuing education for existing practitioners must be compared separately.
+
+GHL's workflow reporting subsequently loaded: [preliminary email findings](../output/email-audit/verified-email-findings.md). Individual last-30-day Full Nurture action rates are captured, but send counts and an account-wide weighted open rate remain unverified. These percentages must not be used as a quantified diagnosis of booking losses.
+
 ## Decision and constraint
 
 Decision: which of the four buyer problems is actually paying, and whether the online mat-and-reformer offer deserves one Australian test before any new country.
@@ -79,3 +85,15 @@ Sophistication: the career-change promise is worn. Pilates is a top industry tre
 Do not send this file, and do not write it into a shared Notion page, without a separate yes. Do not publish an income, employment, or completion claim. Do not scale spend on the 4.4× media multiple.
 
 First moves, owners and tests are in `implications.html`. They are recommendations, not a scope.
+
+## Career-change players — 7 November 2026
+
+The readable chapter is `players.html`. It adds verified Meta Ad Library creatives for Clean Health (page id 459499740859181; library ids 1010235555377348, 1677863034055670, 4470294269876273, 28331593499853925, 1449251840678931, 1171372909173386), Body Athletica (2691277287916159, 918747114089118) and Fluidform (1219082547048917), plus public pages for Australian Fitness Academy and Precision Nutrition fetched the same day.
+
+Not re-opened in the library: Polestar, National Pilates Training, Unite Health, In Balance’s own ad account. No competitor spend, lead count, close rate or audited graduate outcome was obtained. Clean Health’s homepage “350,000+ students” and its EOFY page “2,000+ graduates” are both printed and are not reconciled. Precision Nutrition income figures are the company’s US sales-page claims.
+
+Read against the draft Q1 OKRs and the living plan’s first 30 days. The only new test variable this pass supports is a guide or conversation against the current intake signup, after cash is reconciled. It does not authorise a Certificate IV, an income claim, a tripwire, or mandatory Circle entry.
+
+## Education funnel comparison appendix — 27 October 2026
+
+At Ben’s request, a scoped public-design comparison extends this research: [six education-provider funnel routes, payment/access evidence and thesis limits](../output/market-funnel-comparison/education-funnel-evidence-2026-10-27.md). It covers Clean Health, FRC, Unite Health, Polestar, Precision Nutrition and Balanced Body at Balanze. A separate [Maven general-education analogue](../output/market-funnel-comparison/general-education-analogue.md) adds a seventh reference. These are observable structures, not verified performance benchmarks or a claim that mandatory community entry improves acquisition.
