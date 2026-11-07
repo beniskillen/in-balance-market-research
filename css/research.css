@@ -89,7 +89,9 @@ em {
 }
 .brand {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 12px;
   text-decoration: none;
   line-height: 1;
 }
@@ -103,7 +105,7 @@ em {
   white-space: nowrap;
 }
 .brand small {
-  margin-top: 4px;
+  margin: 0 0 3px;
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.08em;
