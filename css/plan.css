@@ -107,7 +107,7 @@
   background: var(--grey);
 }
 
-.pill {
+.plan a.pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -116,21 +116,27 @@
   text-decoration: none;
   border-radius: 999px;
   padding: 14px 22px;
-  margin-top: 22px;
+  margin-top: 28px;
+  font-family: var(--sans);
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  text-transform: none;
 }
-.pill:hover { background: #0026cc; }
+.plan a.pill:hover { background: #0026cc; }
 
-.close {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 32px;
+.decision {
+  display: block;
+  max-width: 44rem;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
 }
-.close p { margin: 0; }
+.decision h2 { color: #fff; max-width: 16ch; }
+.decision p { margin: 0 0 8px; }
 
 @media (max-width: 900px) {
   .places, .days, .ads, .trio { grid-template-columns: 1fr 1fr; }
-  .pair, .close { grid-template-columns: 1fr; display: grid; }
+  .pair { grid-template-columns: 1fr; }
   .places img { height: 160px; }
   .plan .section, .band { padding: 56px 0; }
 }
